@@ -20,6 +20,9 @@ Salesforce CRM implementation for the SkillWallet group project brief. This repo
 - `force-app/main/default/objects`: custom objects and fields
 - `force-app/main/default/classes`: Apex services, handlers, schedulers, and tests
 - `force-app/main/default/triggers`: trigger entry points
+- `force-app/main/default/permissionsets`: access package for the demo org
+- `force-app/main/default/layouts`: page layouts for the custom objects
+- `scripts/apex`: anonymous Apex scripts for seeding data and running demos
 - `docs/solution-architecture.md`: solution architecture and business mapping
 - `docs/submission-links.md`: simple checklist for the project portal
 
@@ -45,6 +48,25 @@ System.schedule('Nightly Inventory Refresh', '0 0 1 * * ?', new VehicleInventory
 System.schedule('Hourly Test Drive Reminders', '0 0 * * * ?', new TestDriveReminderScheduler());
 ```
 
+5. Assign the permission set:
+
+```bash
+sf org assign permset --name WhatNext_Vision_Motors_Admin
+```
+
+6. Seed demo data:
+
+```bash
+sf apex run --file scripts/apex/seed-demo-data.apex
+```
+
+7. Optional demo helpers:
+
+```bash
+sf apex run --file scripts/apex/demo-retail-validation.apex
+sf apex run --file scripts/apex/run-inventory-batch.apex
+```
+
 ## Demo flow
 
 1. Create a few dealers with coordinates and postal codes.
@@ -54,3 +76,5 @@ System.schedule('Hourly Test Drive Reminders', '0 0 * * * ?', new TestDriveRemin
 5. Insert a bulk order for a low-stock vehicle and show the `Pending` status.
 6. Run the inventory batch, replenish stock, and show the bulk order move to `Confirmed`.
 7. Create a scheduled test drive and run the reminder scheduler.
+
+Detailed setup and presentation notes are in `docs/deployment-runbook.md` and `docs/mentor-demo-runbook.md`.
