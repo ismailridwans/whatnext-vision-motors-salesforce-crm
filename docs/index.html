@@ -25,6 +25,7 @@
                 <a href="#simulator">Simulator</a>
                 <a href="#recovery">Recovery Lab</a>
                 <a href="#launch">Launch Plan</a>
+                <a href="#resources">Resources</a>
             </nav>
         </header>
 
@@ -89,9 +90,9 @@
                 </div>
                 <div class="tab-shell">
                     <div class="tab-list" role="tablist" aria-label="Project Views">
-                        <button class="tab-button is-active" data-panel-target="business" type="button">Business Flow</button>
-                        <button class="tab-button" data-panel-target="technical" type="button">Technical Spine</button>
-                        <button class="tab-button" data-panel-target="demo" type="button">Mentor Demo</button>
+                        <button class="tab-button is-active" data-panel-target="business" type="button" aria-selected="true">Business Flow</button>
+                        <button class="tab-button" data-panel-target="technical" type="button" aria-selected="false">Technical Spine</button>
+                        <button class="tab-button" data-panel-target="demo" type="button" aria-selected="false">Mentor Demo</button>
                     </div>
                     <div class="tab-panels">
                         <article class="tab-panel is-active" data-panel="business">
@@ -204,7 +205,7 @@
                         <button class="button button-primary button-wide" type="submit">Run Order Simulation</button>
                     </form>
 
-                    <div class="result-panel" id="order-result">
+                    <div class="result-panel" id="order-result" aria-live="polite">
                         <div class="result-header">
                             <span class="result-kicker">Simulation Result</span>
                             <span class="result-badge" id="result-badge">Confirmed</span>
@@ -264,7 +265,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="recovery-result" id="recovery-result">
+                    <div class="recovery-result" id="recovery-result" aria-live="polite">
                         <span class="result-kicker">Batch Outcome</span>
                         <h3 id="recovery-title">Atlas SUV remains pending</h3>
                         <p id="recovery-summary">There is still not enough stock to satisfy the pending bulk order of 3 units.</p>
@@ -322,6 +323,33 @@
                     </div>
                 </div>
             </section>
+
+            <section class="resources-shell" id="resources">
+                <div class="section-heading">
+                    <span class="eyebrow">Project Resources</span>
+                    <h2>Keep the final checklist, runbooks, and publishing steps in one place.</h2>
+                </div>
+                <div class="resources-grid">
+                    <article class="resource-card">
+                        <span class="result-kicker">Deployment</span>
+                        <h3>Salesforce Setup</h3>
+                        <p>Use the deployment runbook for login, deploy, permission assignment, test execution, and seeded demo data.</p>
+                        <a class="button button-secondary" href="deployment-runbook.md">Open Runbook</a>
+                    </article>
+                    <article class="resource-card">
+                        <span class="result-kicker">TODO</span>
+                        <h3>Project Tracker</h3>
+                        <p>Review what is finished in this repo and the small external steps still needed for final submission.</p>
+                        <a class="button button-secondary" href="project-todo.md">Open TODO List</a>
+                    </article>
+                    <article class="resource-card">
+                        <span class="result-kicker">Publishing</span>
+                        <h3>GitHub Pages Guide</h3>
+                        <p>Publish this interactive microsite from the `docs/` folder for a live mentor-facing presentation URL.</p>
+                        <a class="button button-secondary" href="github-pages-runbook.md">Open Pages Guide</a>
+                    </article>
+                </div>
+            </section>
         </main>
 
         <footer class="footer">
@@ -330,6 +358,7 @@
                 <a href="solution-architecture.md">Architecture Notes</a>
                 <a href="mentor-demo-runbook.md">Mentor Demo Runbook</a>
                 <a href="submission-links.md">Submission Checklist</a>
+                <a href="project-todo.md">Project TODO</a>
             </div>
         </footer>
     </div>

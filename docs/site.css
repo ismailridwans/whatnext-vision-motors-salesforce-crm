@@ -128,7 +128,8 @@ a {
 .section-grid,
 .simulator-shell,
 .recovery-shell,
-.launch-shell {
+.launch-shell,
+.resources-shell {
     margin-top: 42px;
 }
 
@@ -357,7 +358,8 @@ a {
 
 .simulator-grid,
 .recovery-grid,
-.launch-grid {
+.launch-grid,
+.resources-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
@@ -368,7 +370,8 @@ a {
 .recovery-panel,
 .recovery-result,
 .checklist-card,
-.commands-card {
+.commands-card,
+.resource-card {
     padding: 24px;
 }
 
@@ -580,6 +583,30 @@ input[type="range"] {
     gap: 14px;
 }
 
+.resources-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.resource-card {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-xl);
+    background: var(--surface);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow);
+}
+
+.resource-card h3 {
+    margin: 12px 0 8px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.35rem;
+}
+
+.resource-card p {
+    margin: 0 0 18px;
+    color: var(--muted);
+    line-height: 1.7;
+}
+
 .command-block code {
     display: block;
     margin: 8px 0 12px;
@@ -612,6 +639,7 @@ input[type="range"] {
     .simulator-grid,
     .recovery-grid,
     .launch-grid,
+    .resources-grid,
     .info-grid,
     .metrics {
         grid-template-columns: 1fr 1fr;
@@ -635,6 +663,7 @@ input[type="range"] {
     .simulator-grid,
     .recovery-grid,
     .launch-grid,
+    .resources-grid,
     .field-row,
     .result-stats {
         grid-template-columns: 1fr;

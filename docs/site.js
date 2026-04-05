@@ -74,7 +74,11 @@ function setupTabs() {
     tabButtons.forEach((button) => {
         button.addEventListener("click", () => {
             const target = button.dataset.panelTarget;
-            tabButtons.forEach((item) => item.classList.toggle("is-active", item === button));
+            tabButtons.forEach((item) => {
+                const isActive = item === button;
+                item.classList.toggle("is-active", isActive);
+                item.setAttribute("aria-selected", isActive ? "true" : "false");
+            });
             tabPanels.forEach((panel) => {
                 panel.classList.toggle("is-active", panel.dataset.panel === target);
             });

@@ -28,6 +28,8 @@ Salesforce CRM implementation for the SkillWallet group project brief. This repo
 - `scripts/apex`: anonymous Apex scripts for seeding data and running demos
 - `docs/index.html`: interactive website for project presentation and mentor walkthrough
 - `docs/solution-architecture.md`: solution architecture and business mapping
+- `docs/project-todo.md`: tracked completion list and remaining external actions
+- `docs/github-pages-runbook.md`: steps to publish the site with GitHub Pages
 - `docs/submission-links.md`: simple checklist for the project portal
 
 ## Deployment
@@ -81,4 +83,4 @@ sf apex run --file scripts/apex/run-inventory-batch.apex
 6. Run the inventory batch, replenish stock, and show the bulk order move to `Confirmed`.
 7. Create a scheduled test drive and run the reminder scheduler.
 
-Detailed setup and presentation notes are in `docs/deployment-runbook.md` and `docs/mentor-demo-runbook.md`.
+Detailed setup and presentation notes are in `docs/deployment-runbook.md`, `docs/mentor-demo-runbook.md`, `docs/project-todo.md`, and `docs/github-pages-runbook.md`.
