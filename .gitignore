@@ -1,0 +1,9 @@
+.sf/
+.sfdx/
+.scannerwork/
+.idea/
+.vscode/
+coverage/
+node_modules/
+*.log
+
