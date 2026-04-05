@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatNext Vision Motors Experience</title>
+    <meta name="description" content="Interactive showcase for the WhatNext Vision Motors Salesforce CRM project.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="site.css">
+</head>
+<body>
+    <div class="page-shell">
+        <header class="topbar">
+            <a class="brand" href="#hero">
+                <span class="brand-mark">WN</span>
+                <span>
+                    <strong>WhatNext Vision Motors</strong>
+                    <small>Interactive Project Showcase</small>
+                </span>
+            </a>
+            <nav class="nav-links">
+                <a href="#overview">Overview</a>
+                <a href="#simulator">Simulator</a>
+                <a href="#recovery">Recovery Lab</a>
+                <a href="#launch">Launch Plan</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero" id="hero">
+                <div class="hero-copy">
+                    <span class="eyebrow">Salesforce CRM + Interactive Storytelling</span>
+                    <h1>Automotive operations, customer ordering, and inventory automation in one experience.</h1>
+                    <p>
+                        This website acts as the presentation layer for your Salesforce project. It explains the architecture,
+                        simulates the dealer-assignment and stock-validation logic, and gives mentors a clean way to understand
+                        the business value before they even open the org.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="https://github.com/ismailridwans/whatnext-vision-motors-salesforce-crm" target="_blank" rel="noreferrer">Open GitHub Repo</a>
+                        <a class="button button-secondary" href="deployment-runbook.md">View Deployment Runbook</a>
+                    </div>
+                </div>
+                <aside class="hero-panel">
+                    <span class="panel-kicker">Command Center</span>
+                    <h2>Project Readiness Snapshot</h2>
+                    <ul class="stack-list">
+                        <li>Salesforce DX metadata for app, objects, Apex, layouts, and permission set</li>
+                        <li>Interactive front-end simulator for dealer assignment and stock outcomes</li>
+                        <li>Demo scripts for seeding records, running batches, and showing validations</li>
+                    </ul>
+                    <div class="status-band">
+                        <span class="status-chip">Apex Automation</span>
+                        <span class="status-chip">Batch Recovery</span>
+                        <span class="status-chip">Mentor Demo Ready</span>
+                    </div>
+                </aside>
+            </section>
+
+            <section class="metrics" id="overview">
+                <article class="metric-card">
+                    <span class="metric-label">Custom Objects</span>
+                    <strong class="metric-value" data-count="5">0</strong>
+                    <p>Dealer, vehicle, order, test drive, and service request management.</p>
+                </article>
+                <article class="metric-card">
+                    <span class="metric-label">Core Automations</span>
+                    <strong class="metric-value" data-count="4">0</strong>
+                    <p>Dealer routing, stock validation, batch refresh, and reminder scheduling.</p>
+                </article>
+                <article class="metric-card">
+                    <span class="metric-label">Demo Dealers</span>
+                    <strong class="metric-value" data-count="3">0</strong>
+                    <p>Seeded dealerships for Bengaluru, Chennai, and Mumbai route testing.</p>
+                </article>
+                <article class="metric-card">
+                    <span class="metric-label">Presentation Modes</span>
+                    <strong class="metric-value" data-count="3">0</strong>
+                    <p>Architecture view, order simulator, and inventory recovery lab.</p>
+                </article>
+            </section>
+
+            <section class="section-grid">
+                <div class="section-heading">
+                    <span class="eyebrow">Project Breakdown</span>
+                    <h2>Explore the solution from three angles.</h2>
+                </div>
+                <div class="tab-shell">
+                    <div class="tab-list" role="tablist" aria-label="Project Views">
+                        <button class="tab-button is-active" data-panel-target="business" type="button">Business Flow</button>
+                        <button class="tab-button" data-panel-target="technical" type="button">Technical Spine</button>
+                        <button class="tab-button" data-panel-target="demo" type="button">Mentor Demo</button>
+                    </div>
+                    <div class="tab-panels">
+                        <article class="tab-panel is-active" data-panel="business">
+                            <div class="info-grid">
+                                <section class="info-card">
+                                    <h3>Customer Ordering</h3>
+                                    <p>Retail orders confirm immediately only when stock can be reserved. Bulk orders may stay pending until batch recovery finds enough inventory.</p>
+                                </section>
+                                <section class="info-card">
+                                    <h3>Dealer Assignment</h3>
+                                    <p>Orders route using coordinates first, then postal code, then state. That keeps assignment practical even when only partial customer data is available.</p>
+                                </section>
+                                <section class="info-card">
+                                    <h3>After-Sales Support</h3>
+                                    <p>Service requests and test drives live in the same app, so the project tells a full customer journey story instead of a narrow order-only demo.</p>
+                                </section>
+                            </div>
+                        </article>
+                        <article class="tab-panel" data-panel="technical">
+                            <div class="info-grid">
+                                <section class="info-card">
+                                    <h3>Apex Trigger Framework</h3>
+                                    <p>Trigger handler classes separate routing, inventory allocation, and notification logic so the automation stays maintainable.</p>
+                                </section>
+                                <section class="info-card">
+                                    <h3>Batch + Scheduled Apex</h3>
+                                    <p>The inventory batch refreshes stock availability, resolves pending bulk orders, and sends low-stock alerts. Another scheduler handles test-drive reminders.</p>
+                                </section>
+                                <section class="info-card">
+                                    <h3>Deployment Assets</h3>
+                                    <p>Layouts, a permission set, demo data scripts, and runbooks make the repo useful in a real org setup, not just in code review.</p>
+                                </section>
+                            </div>
+                        </article>
+                        <article class="tab-panel" data-panel="demo">
+                            <div class="info-grid">
+                                <section class="info-card">
+                                    <h3>Open the Lightning App</h3>
+                                    <p>Show seeded dealers, vehicles, customer orders, service requests, and the test-drive record before moving into automation examples.</p>
+                                </section>
+                                <section class="info-card">
+                                    <h3>Run the Simulator</h3>
+                                    <p>Use the live website controls below to explain how the real Apex logic chooses dealers and decides order status.</p>
+                                </section>
+                                <section class="info-card">
+                                    <h3>Show Recovery</h3>
+                                    <p>Replenish Atlas SUV stock, execute the inventory batch, and demonstrate the bulk order moving from pending to confirmed.</p>
+                                </section>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="simulator-shell" id="simulator">
+                <div class="section-heading">
+                    <span class="eyebrow">Live Simulator</span>
+                    <h2>Mirror the order logic in an interactive experience.</h2>
+                </div>
+                <div class="simulator-grid">
+                    <form class="control-panel" id="order-form">
+                        <div class="field-group">
+                            <label for="vehicle">Vehicle</label>
+                            <select id="vehicle" name="vehicle">
+                                <option value="Falcon EV">Falcon EV</option>
+                                <option value="Atlas SUV">Atlas SUV</option>
+                                <option value="Aurora Hybrid">Aurora Hybrid</option>
+                            </select>
+                        </div>
+                        <div class="field-row">
+                            <div class="field-group">
+                                <label for="quantity">Quantity</label>
+                                <input id="quantity" name="quantity" type="number" min="1" value="1">
+                            </div>
+                            <div class="field-group">
+                                <label for="orderType">Order Type</label>
+                                <select id="orderType" name="orderType">
+                                    <option value="Retail">Retail</option>
+                                    <option value="Bulk">Bulk</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="field-row">
+                            <div class="field-group">
+                                <label for="postalCode">Postal Code</label>
+                                <input id="postalCode" name="postalCode" type="text" value="560001">
+                            </div>
+                            <div class="field-group">
+                                <label for="state">State</label>
+                                <select id="state" name="state">
+                                    <option value="Karnataka">Karnataka</option>
+                                    <option value="Tamil Nadu">Tamil Nadu</option>
+                                    <option value="Maharashtra">Maharashtra</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="field-row">
+                            <div class="field-group">
+                                <label for="latitude">Latitude</label>
+                                <input id="latitude" name="latitude" type="number" step="0.0001" value="12.9716">
+                            </div>
+                            <div class="field-group">
+                                <label for="longitude">Longitude</label>
+                                <input id="longitude" name="longitude" type="number" step="0.0001" value="77.5946">
+                            </div>
+                        </div>
+                        <div class="field-hint">
+                            Leave coordinates filled in for nearest-dealer matching. Clear them to see postal-code and state fallback behavior.
+                        </div>
+                        <button class="button button-primary button-wide" type="submit">Run Order Simulation</button>
+                    </form>
+
+                    <div class="result-panel" id="order-result">
+                        <div class="result-header">
+                            <span class="result-kicker">Simulation Result</span>
+                            <span class="result-badge" id="result-badge">Confirmed</span>
+                        </div>
+                        <h3 id="result-title">Falcon EV routed to Bengaluru Central Dealer</h3>
+                        <p id="result-summary">Stock is available, so the retail order confirms immediately and reserves inventory.</p>
+                        <div class="result-stats">
+                            <article>
+                                <span>Assigned Dealer</span>
+                                <strong id="assigned-dealer">Bengaluru Central Dealer</strong>
+                            </article>
+                            <article>
+                                <span>Assignment Rule</span>
+                                <strong id="assignment-rule">Nearest by coordinates</strong>
+                            </article>
+                            <article>
+                                <span>Stock After Outcome</span>
+                                <strong id="stock-after">4 units</strong>
+                            </article>
+                        </div>
+                        <div class="narrative-block">
+                            <h4>Decision Trail</h4>
+                            <ul id="decision-trail" class="decision-list"></ul>
+                        </div>
+                        <div class="narrative-block">
+                            <h4>Customer Communication</h4>
+                            <pre id="email-preview" class="email-preview"></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="recovery-shell" id="recovery">
+                <div class="section-heading">
+                    <span class="eyebrow">Inventory Recovery Lab</span>
+                    <h2>Show how the pending bulk order becomes confirmed after stock replenishment.</h2>
+                </div>
+                <div class="recovery-grid">
+                    <div class="recovery-panel">
+                        <label class="slider-label" for="atlas-stock">
+                            Atlas SUV stock before batch run
+                            <strong id="atlas-stock-label">0 units</strong>
+                        </label>
+                        <input id="atlas-stock" type="range" min="0" max="10" value="0">
+                        <div class="bar-cluster">
+                            <div class="bar-card">
+                                <span>Available Stock</span>
+                                <div class="progress-track">
+                                    <div id="stock-bar" class="progress-fill"></div>
+                                </div>
+                            </div>
+                            <div class="bar-card">
+                                <span>Pending Bulk Order Qty</span>
+                                <div class="progress-track">
+                                    <div id="order-bar" class="progress-fill is-secondary"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recovery-result" id="recovery-result">
+                        <span class="result-kicker">Batch Outcome</span>
+                        <h3 id="recovery-title">Atlas SUV remains pending</h3>
+                        <p id="recovery-summary">There is still not enough stock to satisfy the pending bulk order of 3 units.</p>
+                        <ul id="recovery-log" class="recovery-log"></ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="launch-shell" id="launch">
+                <div class="section-heading">
+                    <span class="eyebrow">Execution Plan</span>
+                    <h2>Track the launch steps and copy the exact commands you need.</h2>
+                </div>
+                <div class="launch-grid">
+                    <div class="checklist-card">
+                        <div class="checklist-head">
+                            <div>
+                                <h3>Launch Checklist</h3>
+                                <p>Progress is saved in your browser for repeat demo sessions.</p>
+                            </div>
+                            <strong id="checklist-progress">0%</strong>
+                        </div>
+                        <div class="checklist-track">
+                            <div class="checklist-fill" id="checklist-fill"></div>
+                        </div>
+                        <label class="check-item"><input type="checkbox" data-checklist="deploy">Deploy metadata to the Salesforce org</label>
+                        <label class="check-item"><input type="checkbox" data-checklist="permset">Assign the WhatNext permission set</label>
+                        <label class="check-item"><input type="checkbox" data-checklist="seed">Seed demo records and schedule jobs</label>
+                        <label class="check-item"><input type="checkbox" data-checklist="batch">Run the inventory and validation demo flow</label>
+                        <label class="check-item"><input type="checkbox" data-checklist="presentation">Present the simulator and mentor storyline</label>
+                    </div>
+
+                    <div class="commands-card">
+                        <h3>Copy-and-Run Commands</h3>
+                        <div class="command-block">
+                            <span>Deploy Metadata</span>
+                            <code id="cmd-deploy">sf project deploy start --source-dir force-app --target-org whatnext-dev</code>
+                            <button class="button button-secondary button-small" data-copy-target="cmd-deploy" type="button">Copy</button>
+                        </div>
+                        <div class="command-block">
+                            <span>Assign Permission Set</span>
+                            <code id="cmd-permset">sf org assign permset --name WhatNext_Vision_Motors_Admin --target-org whatnext-dev</code>
+                            <button class="button button-secondary button-small" data-copy-target="cmd-permset" type="button">Copy</button>
+                        </div>
+                        <div class="command-block">
+                            <span>Seed Demo Data</span>
+                            <code id="cmd-seed">sf apex run --file scripts/apex/seed-demo-data.apex --target-org whatnext-dev</code>
+                            <button class="button button-secondary button-small" data-copy-target="cmd-seed" type="button">Copy</button>
+                        </div>
+                        <div class="command-block">
+                            <span>Schedule Jobs</span>
+                            <code id="cmd-schedule">sf apex run --file scripts/apex/schedule-jobs.apex --target-org whatnext-dev</code>
+                            <button class="button button-secondary button-small" data-copy-target="cmd-schedule" type="button">Copy</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Built for SkillWallet mentor review, GitHub presentation, and Salesforce demo readiness.</p>
+            <div class="footer-links">
+                <a href="solution-architecture.md">Architecture Notes</a>
+                <a href="mentor-demo-runbook.md">Mentor Demo Runbook</a>
+                <a href="submission-links.md">Submission Checklist</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="site.js"></script>
+</body>
+</html>

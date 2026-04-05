@@ -16,6 +16,7 @@ Salesforce CRM implementation for the SkillWallet group project brief. This repo
 
 - Demo link: add your recorded demo URL here
 - GitHub link: https://github.com/ismailridwans/whatnext-vision-motors-salesforce-crm
+- Interactive website: open `docs/index.html` locally or publish the `docs/` folder with GitHub Pages
 
 ## Project structure
 
@@ -25,6 +26,7 @@ Salesforce CRM implementation for the SkillWallet group project brief. This repo
 - `force-app/main/default/permissionsets`: access package for the demo org
 - `force-app/main/default/layouts`: page layouts for the custom objects
 - `scripts/apex`: anonymous Apex scripts for seeding data and running demos
+- `docs/index.html`: interactive website for project presentation and mentor walkthrough
 - `docs/solution-architecture.md`: solution architecture and business mapping
 - `docs/submission-links.md`: simple checklist for the project portal
 
