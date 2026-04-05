@@ -6,8 +6,10 @@ Salesforce CRM implementation for the SkillWallet group project brief. This repo
 
 - Auto-assigns customer orders to the nearest dealer by latitude/longitude, with postal-code and state fallback logic.
 - Prevents retail orders when a vehicle is out of stock.
+- Reserves stock automatically when an order is confirmed so inventory stays accurate.
 - Marks bulk orders as `Pending` until inventory is replenished, then confirms them through batch processing.
 - Sends scheduled test-drive reminder emails.
+- Sends customer-facing order status emails when orders become `Pending` or `Confirmed`.
 - Monitors low-stock vehicles and sends notification emails after each inventory batch run.
 
 ## Repo links for SkillWallet submission

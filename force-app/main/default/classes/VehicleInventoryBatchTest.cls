@@ -56,7 +56,7 @@ private class VehicleInventoryBatchTest {
         Test.stopTest();
 
         Vehicle__c refreshedVehicle = [
-            SELECT Is_Available__c, Last_Stock_Checked__c
+            SELECT Available_Stock__c, Is_Available__c, Last_Stock_Checked__c
             FROM Vehicle__c
             WHERE Id = :vehicleRecord.Id
         ];
@@ -66,9 +66,9 @@ private class VehicleInventoryBatchTest {
             WHERE Id = :orderRecord.Id
         ];
 
+        System.assertEquals(6, refreshedVehicle.Available_Stock__c);
         System.assertEquals(true, refreshedVehicle.Is_Available__c);
         System.assertNotEquals(null, refreshedVehicle.Last_Stock_Checked__c);
         System.assertEquals('Confirmed', refreshedOrder.Order_Status__c);
     }
 }
-

@@ -20,6 +20,7 @@ WhatNext Vision Motors needs a Salesforce implementation that improves customer 
 
 - Stores customer purchase requests.
 - Trigger logic validates stock and assigns the best dealer.
+- Confirmed orders reserve stock automatically on the related vehicle.
 - Bulk orders can stay in `Pending` until inventory improves.
 
 ### Test Drive (`Test_Drive__c`)
@@ -38,6 +39,8 @@ WhatNext Vision Motors needs a Salesforce implementation that improves customer 
 - `CustomerOrderTrigger` routes customer orders to the nearest dealer.
 - `CustomerOrderTrigger` blocks retail orders when requested stock is not available.
 - `CustomerOrderTrigger` marks bulk orders as `Pending` when stock is not yet sufficient.
+- `CustomerOrderTrigger` reserves or releases vehicle stock based on order status changes.
+- `CustomerOrderTrigger` sends customer emails when order status changes to `Pending` or `Confirmed`.
 
 ### Batch and scheduled automation
 
@@ -67,4 +70,3 @@ WhatNext Vision Motors needs a Salesforce implementation that improves customer 
 - Show the batch job moving bulk orders from `Pending` to `Confirmed`.
 - Show the reminder scheduler marking `Reminder_Sent__c` after email delivery.
 - Show how the data model supports both sales and service use cases in one org.
-

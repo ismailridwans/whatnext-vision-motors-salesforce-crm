@@ -67,9 +67,15 @@ private class CustomerOrderTriggerHandlerTest {
             FROM Customer_Order__c
             WHERE Id = :orderRecord.Id
         ];
+        Vehicle__c updatedVehicle = [
+            SELECT Available_Stock__c
+            FROM Vehicle__c
+            WHERE Id = :vehicleRecord.Id
+        ];
 
         System.assertEquals('Confirmed', insertedOrder.Order_Status__c);
         System.assertEquals('Bengaluru Central Dealer', insertedOrder.Dealer__r.Name);
+        System.assertEquals(4, updatedVehicle.Available_Stock__c);
     }
 
     @IsTest
@@ -121,5 +127,95 @@ private class CustomerOrderTriggerHandlerTest {
         System.assertEquals('Pending', insertedOrder.Order_Status__c);
         System.assertNotEquals(null, insertedOrder.Dealer__c);
     }
-}
 
+    @IsTest
+    static void allocatesLimitedInventoryAcrossRetailOrders() {
+        insert new Vehicle__c(
+            Name = 'Sprint EV',
+            Model_Code__c = 'SPR-EV',
+            Vehicle_Type__c = 'EV',
+            Base_Price__c = 2500000,
+            Available_Stock__c = 1,
+            Reorder_Threshold__c = 1
+        );
+
+        Vehicle__c vehicleRecord = [SELECT Id FROM Vehicle__c WHERE Name = 'Sprint EV' LIMIT 1];
+
+        List<Customer_Order__c> newOrders = new List<Customer_Order__c>{
+            new Customer_Order__c(
+                Customer_Name__c = 'Order One',
+                Customer_Email__c = 'order.one@example.com',
+                Customer_Postal_Code__c = '560001',
+                Customer_State__c = 'Karnataka',
+                Vehicle__c = vehicleRecord.Id,
+                Quantity__c = 1
+            ),
+            new Customer_Order__c(
+                Customer_Name__c = 'Order Two',
+                Customer_Email__c = 'order.two@example.com',
+                Customer_Postal_Code__c = '560001',
+                Customer_State__c = 'Karnataka',
+                Vehicle__c = vehicleRecord.Id,
+                Quantity__c = 1
+            )
+        };
+
+        Test.startTest();
+        Database.SaveResult[] results = Database.insert(newOrders, false);
+        Test.stopTest();
+
+        Vehicle__c updatedVehicle = [
+            SELECT Available_Stock__c
+            FROM Vehicle__c
+            WHERE Id = :vehicleRecord.Id
+        ];
+        List<Customer_Order__c> confirmedOrders = [
+            SELECT Id
+            FROM Customer_Order__c
+            WHERE Vehicle__c = :vehicleRecord.Id
+        ];
+
+        System.assertEquals(true, results[0].isSuccess());
+        System.assertEquals(false, results[1].isSuccess());
+        System.assertEquals(0, updatedVehicle.Available_Stock__c);
+        System.assertEquals(1, confirmedOrders.size());
+    }
+
+    @IsTest
+    static void releasesStockWhenConfirmedOrderIsRejected() {
+        Vehicle__c vehicleRecord = [SELECT Id FROM Vehicle__c WHERE Name = 'Falcon EV' LIMIT 1];
+
+        Customer_Order__c orderRecord = new Customer_Order__c(
+            Customer_Name__c = 'Release Demo',
+            Customer_Email__c = 'release.demo@example.com',
+            Customer_Postal_Code__c = '560001',
+            Customer_State__c = 'Karnataka',
+            Vehicle__c = vehicleRecord.Id,
+            Quantity__c = 2
+        );
+        insert orderRecord;
+
+        Test.startTest();
+        update new Customer_Order__c(
+            Id = orderRecord.Id,
+            Order_Status__c = 'Rejected',
+            Vehicle__c = vehicleRecord.Id,
+            Quantity__c = 2
+        );
+        Test.stopTest();
+
+        Vehicle__c updatedVehicle = [
+            SELECT Available_Stock__c
+            FROM Vehicle__c
+            WHERE Id = :vehicleRecord.Id
+        ];
+        Customer_Order__c updatedOrder = [
+            SELECT Order_Status__c
+            FROM Customer_Order__c
+            WHERE Id = :orderRecord.Id
+        ];
+
+        System.assertEquals('Rejected', updatedOrder.Order_Status__c);
+        System.assertEquals(5, updatedVehicle.Available_Stock__c);
+    }
+}
